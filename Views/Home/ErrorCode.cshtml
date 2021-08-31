@@ -1,0 +1,10 @@
+﻿@model ErrorCodeModel
+
+@{ 
+    ViewData["Title"] = $"{Model.Code} wystapilo";
+} 
+
+<div class="text-center text-danger">
+    <h4>@Model.Code wystapil</h4>
+    <h5>Jesli problem wystepuje notorycznie rozwaz zmiane zapytania badz skontaktuj sie z administratorem</h5>
+</div>

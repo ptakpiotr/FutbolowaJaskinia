@@ -1,0 +1,31 @@
+﻿@model List<ChatModel>
+
+@{ 
+    ViewData["Title"] = "Chat";
+} 
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chatRLogic.js"></script>
+
+<div>
+    <div class="add-new">
+        <input type="text" placeholder="Tekst wiadomosci" class="form-control" id="chat-box" />
+        <button class="btn btn-warning" onclick="AddMessage('@User.Identity.Name')">Dodaj</button>
+
+    </div>
+    <div class="chat-messages">
+        @if (Model.Any())
+        {
+            @foreach (var c in Model)
+            {
+                <div class="bg-dark text-info m-3 p-1">
+                    <b>@c.From</b> -> @c.Message
+                </div>
+            }
+        }
+        else
+        {
+            <div class="text-danger">Brak wiadomosci od innych uzytkownikow</div>
+        }
+    </div>
+</div>

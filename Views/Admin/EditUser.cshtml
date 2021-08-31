@@ -1,0 +1,22 @@
+﻿@model EditUserDTO
+@{
+    ViewData["Title"] = "Edytuj uzytkownika";
+} 
+
+<h4 class="display-4">Edytuj @Model.Email</h4>
+<form asp-action="EditUser" asp-controller="Admin" asp-route-userId="@Model.Id" method="post">
+    <div class="row">
+        <label class="col-form-label col-sm-4" asp-for="Email"></label>
+        <input class="form-control col-sm-8" asp-for="Email" readonly />
+    </div>
+    <div class="row">
+        <label class="col-form-label col-sm-4" asp-for="FavouriteClub"></label>
+        <input class="form-control col-sm-8" asp-for="FavouriteClub" />
+    </div>
+    <div asp-validation-summary="All"></div>
+    <input type="submit" value="Edytuj" class="btn btn-success" />
+</form>
+
+<form asp-action="DeleteUser" asp-controller="Admin" asp-route-userId="@Model.Id" class="form-inline">
+    <input type="submit" value="Usun" class="btn btn-outline-danger" onclick="return confirm('Chcesz usunac?')" />
+</form>

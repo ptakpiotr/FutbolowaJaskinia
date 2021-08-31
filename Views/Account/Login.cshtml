@@ -1,0 +1,27 @@
+﻿@model LoginModel
+@{
+    ViewData["Title"] = "Zaloguj sie";
+}
+
+<form asp-action="Login" asp-controller="Account" method="post" class="container">
+    <div class="row">
+        <label class="col-sm-4 col-form-label">Email</label>
+        <input class="col-sm-6 form-control" asp-for="Email" />
+        <span class="col-sm-2" asp-validation-for="Email"></span>
+    </div>
+    <div class="row">
+        <label class="col-sm-4 col-form-label" >Haslo</label>
+        <input class="col-sm-6 form-control" asp-for="Password" />
+        <span class="col-sm-2" asp-validation-for="Password"></span>
+    </div>
+    <div class="row">
+        <label class="col-sm-4 col-form-label">Pamietaj</label>
+        <input class="col-sm-6 form-control" asp-for="RememberMe" />
+        <span class="col-sm-2" asp-validation-for="RememberMe"></span>
+    </div>
+
+    <div asp-validation-summary="All"></div>
+    <input class="btn btn-outline-primary" type="submit" value="Login" />
+</form>
+
+<a asp-action="ForgotPassword" asp-controller="Account">Zapomnialem/am hasla</a>

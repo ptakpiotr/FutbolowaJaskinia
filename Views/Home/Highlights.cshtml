@@ -1,0 +1,29 @@
+﻿@model List<HighlightsModel>
+
+@{
+    ViewData["Title"] = "Skroty";
+}
+
+<div class="text-center">
+    Powered by <a href="https://www.scorebat.com/video-api/">Scorebat Video API</a>
+</div>
+<div class="container">
+    @if (Model.Any())
+    {
+        @foreach (var highlight in Model)
+        {
+            <div class="card mt-3">
+                <div class="card-header bg-dark text-light">
+                    @highlight.Title
+                </div>
+                <div class="card-body row">
+                    <div class="col-2"></div>
+                    <img src="@highlight.Thumbnail" class="col-8" />
+                </div>
+                <div class="card-footer text-center bg-dark text-light">
+                    <a href="@highlight.MatchviewUrl" class="btn btn-success">Obejrzyj skrót</a>
+                </div>
+            </div>
+        }
+    }
+</div>

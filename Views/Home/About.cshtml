@@ -1,0 +1,61 @@
+﻿@model ContactFormModel
+@{ 
+    ViewData["Title"] = "O mnie";
+}
+
+<h4 class="display-4">O autorze:</h4>
+<div class="text-center font-weight-light" id="aboutBlock">
+    
+</div>
+<div class="text-center font-weight-light">
+    Polecam również moje profile na <a href="https://github.com/ptakpiotr">Github</a> i <a href="https://github.com/ptakpiotr">SoloLearn</a>.
+</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <h4 class="display-4">
+        Formularz kontaktowy:
+    </h4>
+    <form asp-action="About" asp-controller="Home" method="post">
+        <div class="row">
+            <label class="col-form-label col-sm-4">Tytuł</label>
+            <input class="form-control col-sm-6" asp-for="@Model.Title" />
+        </div>
+        <div class="row">
+            <label class="col-form-label col-sm-4">Treść</label>
+            <input class="form-control col-sm-6" asp-for="@Model.Content" />
+        </div>
+        <div asp-validation-summary="All">
+
+        </div>
+        <input type="submit" value="Dodaj" class="btn btn-secondary" />
+    </form>
+}
+else
+{
+    <div class="text-danger">
+        Użytkownik nie jest zalogowany. Zaloguj się aby uzyskać dostęp do formularza kontaktowego
+    </div>
+}
+<div>
+    Icons made by
+    <a href="https://www.freepik.com" title="Freepik" target="_blank">Freepik</a> from
+    <a href="https://www.flaticon.com/" title="Flaticon"target="_blank">www.flaticon.com</a>
+    Obrazy z <a href="https://www.unsplash.com" title="Unsplash" target="_blank">unsplash</a>
+</div>
+<script>
+    window.onload = () => {
+        var divElem = document.getElementById("aboutBlock");
+        var content = "Projekt autorstwa Piotra Ptak. Strona powstała w celach treningowo-edukacyjnych. Nie ukrywam również, że piłka nożna to moja pasja," +
+            "dzięki czemu udało się połączyć pożyteczne z bardzo przyjemnym:)." +
+            "Osobiście kibicuję FC Barcelona.Jeśli masz jakieś propozycje / uwagi / spostrzeżenia wypełnij poniższy formularz kontaktowy.";
+        var counter = 0;
+        var inter = setInterval(() => {
+            if (counter < content.length) {
+                divElem.innerHTML += content[counter];
+                counter++;
+            } else {
+                clearInterval(inter);
+            }
+        },50);
+    };
+</script>

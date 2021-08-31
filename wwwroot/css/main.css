@@ -1,0 +1,185 @@
+.app-header {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 70px;
+    background-color: #3CB371;
+    border-bottom: 1px solid greenyellow;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 10;
+}
+
+.app-header-menu {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  list-style-type: none;
+  padding: 10px;
+}
+
+.app-header-menu li {
+  display: inline-block;
+  padding: 5px;
+  color: whitesmoke;
+}
+
+.app-logo {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 60px;
+  -webkit-transition: -webkit-transform 2.5s linear;
+  transition: -webkit-transform 2.5s linear;
+  transition: transform 2.5s linear;
+  transition: transform 2.5s linear, -webkit-transform 2.5s linear;
+}
+
+.full-width{
+    margin-left:0px !important;
+}
+
+.app-logo:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.app-logo a img {
+  width: 60px;
+}
+
+.app-hamburger{
+    display:none;
+    flex:1 0 auto;
+    width:60px;
+}
+
+.app-hamburger img{
+    width:60px;
+}
+
+@media(max-width:767px){
+    .app-hamburger {
+        display: flex;
+        order: -1 !important;
+    }
+    .app-logo{
+        display:none;
+    }
+}
+
+.spec-eff {
+  display: inline-block;
+  position: relative;
+}
+
+.spec-eff::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 1px;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  background-color: whitesmoke;
+}
+
+.spec-eff:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.app-sidebar {
+    position: relative;
+    margin-top: 70px;
+    height: 100vh;
+    width: 250px;
+    background-color: #3CB371;
+    border-right: 1px solid greenyellow;
+    -webkit-transition: margin-left 0.5s ease-out;
+    transition: margin-left 0.5s ease-out;
+    z-index: 9;
+}
+
+@media (max-width: 767px) {
+  .app-sidebar {
+    margin-left: -250px;
+  }
+}
+
+.app-sidebar-menu {
+  position: relative;
+  list-style-type: none;
+  color: whitesmoke;
+  margin: 0px;
+  left: 0px;
+}
+
+.app-sidebar-menu li {
+  position: relative;
+  margin: 0px;
+  padding: 10px;
+  -webkit-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+}
+
+.hover-eff {
+    -webkit-transition: background-color 0.3s ease-out;
+    transition: background-color 0.3s ease-out;
+    width:100%;
+    height:100%;
+}
+
+.hover-eff:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.app-sidebar-menu li:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.app-footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #3CB371;
+    color: whitesmoke;
+    border-top: 1px solid greenyellow;
+    text-align: center;
+    z-index: 8;
+}
+
+.app-main{
+    position:absolute;
+    top:70px;
+    margin-left:270px;
+    transition:margin-left 0.5s ease-out;
+}
+@media (max-width: 767px) {
+    .app-main {
+        margin-left: 0px;
+    }
+}
+
+.comm-block{
+    overflow-y:auto;
+    height:500px;
+    width:120%;
+}
+
+.chat-messages{
+    overflow-y:auto;
+}

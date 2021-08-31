@@ -1,0 +1,40 @@
+﻿@model StandingsModel
+
+@{
+    ViewData["Title"] = "Tabela rozgrywek";
+}
+
+<h4 class="display-4 text-center">
+    @Model.Competition.Name kolejka @Model.Season.CurrentMatchday
+</h4>
+@foreach (var s in Model.Standings)
+{
+    <h5 class="text-center">Grupa: @(s.Group ?? "1")</h5>
+    <div class="table-responsive">
+        <table class="table table-bordered table-dark text-light">
+            <tr>
+                <th>Pozycja</th>
+                <th>Zespol</th>
+                <th>Punkty</th>
+                <th>Wygrane</th>
+                <th>Remisy</th>
+                <th>Porazki</th>
+                <th>Gole +</th>
+                <th>Gole -</th>
+            </tr>
+            @foreach (var t in s.Table)
+            {
+                <tr>
+                    <td>@t.Position.</td>
+                    <td><img src="@t.Team.CrestUrl" width="25px" /> <strong>@t.Team.Name</strong> </td>
+                    <td>@t.Points</td>
+                    <td>@t.Won</td>
+                    <td>@t.Draw</td>
+                    <td>@t.Lost</td>
+                    <td>@t.GoalsFor</td>
+                    <td>@t.GoalsAgainst</td>
+                </tr>
+            }
+        </table>
+    </div>
+}

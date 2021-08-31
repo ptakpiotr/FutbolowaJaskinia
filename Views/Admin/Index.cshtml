@@ -1,0 +1,80 @@
+﻿@model List<ListUsersDTO> 
+@{
+    ViewData["Title"] = "Zarzadzaj uzytkownikami";
+}
+<div class="container-fluid">
+    @foreach(var user in Model)
+    {
+        <div class="container-fluid">
+            <div class="card bg-dark text-light mt-4">
+                <div class="card-header">
+                    @user.User.Email
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 text-dark">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Role uzytkownika:
+                                    </div>
+                                    <div class="card-body">
+                                        @if (user.UserRoles.Any())
+                                        {
+                                            <ul>
+                                                @foreach(var role in user.UserRoles)
+                                                {
+                                                    <li>@role</li>
+                                                }
+                                            </ul>
+                                        }
+                                        else
+                                        {
+                                            <div class="text-danger">
+                                                Ten uzytkownik nie posiada zadnej roli
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <a asp-action="ManageRoles" asp-controller="Admin" asp-route-userId="@user.User.Id" class="btn btn-primary">Edytuj</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-dark">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Uprawnienia uzytkownika
+                                    </div>
+                                    <div class="card-body">
+                                        @if (user.UserClaims.Any())
+                                        {
+                                            <ul>
+                                                @foreach (var claim in user.UserClaims)
+                                                {
+                                                  <li>@claim</li>
+                                                }
+                                            </ul>
+                                        }
+                                        else
+                                        {
+                                            <div class="text-danger">Ten uzytkownik nie ma zadnych uprawnien</div>
+                                        }
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-footer text-center">
+                                            <a href="#" class="btn btn-primary">Edytuj</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-action="EditUser" asp-controller="Admin" asp-route-userId="@user.User.Id" class="btn btn-outline-primary">Edytuj</a>
+       
+                </div>
+            </div>
+        </div>
+    }
+</div>
