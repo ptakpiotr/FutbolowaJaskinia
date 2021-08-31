@@ -76,7 +76,7 @@ namespace FutbolowaJaskinia
             services.AddScoped<IUtiRepo, SqlUtiRepo>();
             services.AddScoped<HangfireJobs>();
 
-            //services.AddProgressiveWebApp();
+            services.AddProgressiveWebApp();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, HangfireJobs jobs)
